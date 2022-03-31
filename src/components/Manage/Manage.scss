@@ -1,0 +1,41 @@
+.manager-user {
+    .form-search {
+        display: flex;
+        justify-content: right;
+        margin-right: 20px;
+
+        .input-search {
+            width: 250px;
+            margin-right: 10px;
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+            color: hsla(0, 2%, 24%, 0.922);
+            margin-top: 8px;
+        }
+    }
+
+    .sort {
+        padding-left: 5px;
+        color: #0d6efd;
+    }
+
+    .wrap-content-table {
+        td {
+            input {
+                display: none;
+            }
+        } 
+        .active {
+            input {
+                display: block;
+            }
+
+            .value-action{
+                display: none;
+            }
+        }
+    }
+}

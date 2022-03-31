@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss'
+import { useEffect, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+
+import AppBar from './components/AppBar/AppBar'
+import SideNav from './components/SideNav/SideNav'
+import Dashboard from './components/Dashboard/Dashboard'
+import Profile from './components/Profile/Profile'
+import Manage from './components/Manage/Manage'
+
+import { getListUser } from 'actions/APICall'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [listUser, setListUser] = useState([])
+    useEffect(() => {
+        getListUser().then(data => {
+            setListUser(data) 
+        })
+    }, [])
+
+    // console.log('listUse2', listUser)
+    return (
+        <div className="app-container">
+            <AppBar />
+            <SideNav />
+            <div className="wrap-content">
+                <Routes>
+                    <Route path="/" element={<Dashboard listUser={listUser} />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/manage" element={<Manage listUser={listUser}/>} />
+                </Routes>
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600');
+@import '~bootstrap/scss/bootstrap';
+
+.app-container {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+
+    .app-bar {
+        width: 100%;
+        background-color: #0067a3;
+        height: 8vh;
+    }
+
+    .side-nav {
+        width: 15%;
+        height: 92vh;
+    }
+
+    .wrap-content {
+        width: 85%;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
